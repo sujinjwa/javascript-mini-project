@@ -1,4 +1,4 @@
-#modal {
+#modal, #modal-for-revision {
     display: none;
     position: absolute;
     top: 50px;
@@ -11,8 +11,22 @@
     border-radius: 20px;
 }
 
-#modal.show {
+#modal.show, #modal-for-revision.show {
     display: block;
+}
+
+#modal-for-revision {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+#modal-for-revision > input {
+    padding: 10px;
+}
+
+#modal-for-revision > button {
+    width: 200px;
 }
 
 body {

@@ -57,6 +57,11 @@ const closeModal = () => {
     modal.classList.remove('show');
 }
 
+const closeModal2 = () => {
+    let modal = document.querySelector('#modal-for-revision');
+    modal.classList.remove('show');
+}
+
 // 글 삭제
 const deleteArticle = async (id) => {
     let token = getCookie('access_token');
@@ -77,5 +82,21 @@ function getCookie(name) {
 
 // 글 수정
 const reviseArticle = async (id) => {
-    return;
+    let modal = document.querySelector('#modal');
+    modal.classList.remove('show');
+
+    let result = await getArticle(id);
+
+    let modalTitle = document.querySelector('#revision-title');
+    let modalContent = document.querySelector('#revision-content');
+    // let modalCategory = document.querySelector('#revision-category');
+    let modalAuthor = document.querySelector('#revision-author');
+
+    modalTitle.innerText = result.title;
+    modalContent.innerText = result.content;
+    // modalCategory = result.category.name;
+    modalAuthor.innerText = result.author;
+
+    let modal2 = document.querySelector('#modal-for-revision');
+    modal2.classList.add('show');
 }
