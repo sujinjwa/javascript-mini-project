@@ -1,0 +1,32 @@
+#modal {
+    display: none;
+    position: absolute;
+    top: 50px;
+    margin: 0 auto;
+    width: 700px;
+    height: 300px;
+    padding: 50px;
+    background-color: coral;
+    color: white;
+    border-radius: 20px;
+}
+
+#modal.show {
+    display: block;
+}
+
+body {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article {
+    width: 500px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color:cadetblue;
+    color: white;
+    cursor: pointer;
+}
