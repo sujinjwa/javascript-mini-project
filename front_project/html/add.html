@@ -7,11 +7,28 @@
     <title>게시글/카테고리 등록</title>
 </head>
 <body>
-    <div id="">
+    <div>
         <form id="form">
             <label for="category">추가할 카테고리를 입력해주세요: </label>
             <input type="text" name="name" placeholder="category" id="category">
             <button onclick="addCategory()">카테고리 등록</button>
+        </form>
+    </div>
+    <div>
+        <form id="article-form">
+            <h3>추가할 게시글을 입력해주세요:</h3>
+            <label for="title">제목: </label>
+            <input type="text" name="title" id="title" placeholder="title">
+            <label for="content">내용: </label>
+            <input type="text" name="content" id="content" placeholder="content">
+            <label for="category">카테고리: </label>
+            <div id="category-lists">
+                <!-- <div>
+                    <input type="checkbox" id="category" name="category" value="coding" checked />
+                    <label for="coding">Coding</label>
+                </div> -->
+            </div>
+            <button onclick="addArticle()">게시글 등록</button>
         </form>
     </div>
     <script src="../js/add.js"></script>
