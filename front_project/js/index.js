@@ -46,10 +46,36 @@ const openModal = async (id) => {
     modalCategory.innerText = result.category.name;
     modalAuthor.innerText = result.author;
 
+    modal.insertAdjacentHTML('beforeend', `<button onclick="deleteArticle(${id})">삭제</button>
+                                            <button onclick="reviseArticle(${id})">수정</button>`)
+
     modal.classList.add('show');
 }
 
 const closeModal = () => {
     let modal = document.querySelector('#modal');
     modal.classList.remove('show');
+}
+
+// 글 삭제
+const deleteArticle = async (id) => {
+    let token = getCookie('access_token');
+    await fetch(`${SERVER_URL}/blog/article/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}` // 내가 누구인지에 대한 정보 포함해서 POST 요청
+        },
+    })
+}
+
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// 글 수정
+const reviseArticle = async (id) => {
+    return;
 }
